@@ -33,7 +33,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sshagent(credentials: ['creds_srv']) {
-            sh 'ssh -o StrictHostKeyChecking=no 172.104.157.7 "cd web_app && git pull && go build ./web_app.go && ./web_app &"'
+            sh 'ssh -o StrictHostKeyChecking=no root@172.104.157.7 "cd web_app && git pull && go build ./web_app.go && ./web_app &"'
         }
       }
     }
