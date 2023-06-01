@@ -24,7 +24,7 @@ pipeline {
       steps {
         echo 'Testing application...'
         sh './web_app &'
-        sh '''response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:80) &&
+        sh '''response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080) &&
         echo Resoince is: $response &&
         [ "$response" = "200" ] && exit 0 || exit 1'''
       }
