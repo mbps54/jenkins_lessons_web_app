@@ -29,12 +29,12 @@ pipeline {
         [ "$response" = "200" ] && exit 0 || exit 1'''
       }
     }
-    stage('Deploy') {
-      steps {
-        sshagent(credentials: ['creds_srv']) {
-            sh 'ssh -o StrictHostKeyChecking=no root@172.104.157.7 "cd web_app && git pull && go build ./web_app.go && ./web_app &"'
-        }
-      }
-    }
+    //stage('Deploy') {
+    //  steps {
+    //    sshagent(credentials: ['creds_srv']) {
+    //        sh 'ssh -o StrictHostKeyChecking=no root@172.104.157.7 "cd web_app && git pull && go build ./web_app.go && ./web_app &"'
+    //    }
+    //  }
+    //}
   }
 }
