@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  tools { go '1.19' }
   stages {
     stage('Checkout SCM') {
       steps {
