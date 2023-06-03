@@ -34,12 +34,13 @@ pipeline {
         [ "$response" = "200" ] && exit 0 || exit 1'''
       }
     }
-    //stage('Deploy') {
-    //  steps {
-    //    sshagent(credentials: ['creds_srv']) {
-    //        sh 'ssh -o StrictHostKeyChecking=no root@172.104.157.7 "cd web_app && git pull && go build ./web_app.go && ./web_app &"'
-    //    }
-    //  }
-    //}
+    stage('Deploy') {
+      steps {
+        echo 'Deploying application...'
+        sshagent(credentials: ['ubuntu_creds']) {
+            sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.120.40.38 "cd /home/ubuntu/web_app && git pull && go build ./web_app.go && sudo systemctl restart web_app"'
+        }
+      }
+    }
   }
 }
