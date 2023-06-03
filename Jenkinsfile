@@ -44,7 +44,7 @@ pipeline {
       steps {
         echo 'Deploying application...'
         sshagent(credentials: ['ubuntu']) {
-            sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.120.40.38 "cd /home/ubuntu/web_app && git pull && go build ./web_app.go && sudo systemctl restart web_app"'
+            sh 'ssh -o StrictHostKeyChecking=no @3.120.40.38 "cd /home/ubuntu/web_app && git pull && go build ./web_app.go && sudo systemctl restart web_app"'
         }
       }
     }
