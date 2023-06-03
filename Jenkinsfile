@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'golang:latest'
+      args '-e GOCACHE=/home/ubuntu/jenkins_node/workspace/pipeline_lesson_9'
+    }
+  }
   stages {
     stage('Checkout SCM') {
       steps {
@@ -13,10 +18,10 @@ pipeline {
         ])
       }
     }
-      
     stage('Build') {
       steps {
         echo 'Building application...'
+        sh 'echo $GOCACHE'
         sh 'go build ./web_app.go'
       }
     }
