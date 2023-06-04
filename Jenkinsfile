@@ -9,18 +9,6 @@ pipeline {
         }
       }
       stages {
-        stage('Checkout SCM') {
-          steps {
-            checkout([
-              $class: 'GitSCM',
-              branches: [[name: 'main']],
-              userRemoteConfigs: [[
-                url: 'https://github.com/mbps54/web_app.git',
-                credentialsId: '',
-              ]]
-            ])
-          }
-        }
         stage('Build') {
           steps {
             echo 'Building application...'
