@@ -2,9 +2,6 @@ pipeline {
   agent none
   stages {
     stage('Build and Test') {
-      options {
-        skipDefaultStage()
-      }
       agent {
         docker {
           image 'golang:latest'
