@@ -7,7 +7,7 @@ import (
 
 func main() {
   http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Hello from lesson 8!")
+    fmt.Fprint(w, "Hello from lesson 9!")
   })
   err := http.ListenAndServe("0.0.0.0:8081", nil)
   if err != nil {
