@@ -5,7 +5,7 @@ pipeline {
       agent {
         docker {
           image 'golang:latest'
-          args '-e GOCACHE=/home/ubuntu/jenkins_node/workspace/pipeline_lesson_9'
+          args '-e GOCACHE=/home/ubuntu/jenkins_node/workspace/pipeline_lesson_10'
         }
       }
       stages {
