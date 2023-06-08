@@ -28,7 +28,7 @@ pipeline {
         stage('Archive') {
           steps {
             echo 'Archiving artifacts...'
-            archiveArtifacts artifacts: './**', followSymlinks: false
+            archiveArtifacts artifacts: '**/*', allowEmptyArchive: false, followSymlinks: false
           }
         }
       }
