@@ -25,6 +25,12 @@ pipeline {
             [ "$response" = "200" ] && exit 0 || exit 1'''
           }
         }
+        stage('Archive') {
+          steps {
+            echo 'Archiving artifacts...'
+            archiveArtifacts artifacts: '**/web_app', followSymlinks: false
+          }
+        } 
       }
     }
     stage('Deploy') {
