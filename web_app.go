@@ -13,7 +13,7 @@ func main() {
                 <head>
                     <style>
                         #hello {
-                            font-size: 120px;
+                            font-size: 60px;
                         }
                     </style>
                 </head>
