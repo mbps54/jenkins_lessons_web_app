@@ -2,7 +2,7 @@ pipeline {
   agent none
   stages {
     stage('SonarQube Analysis') {
-      agent any
+      agent { label 'node1' }
       steps {
         script {
           def scannerHome = tool 'SonarScanner';
@@ -10,6 +10,13 @@ pipeline {
             sh "${scannerHome}/bin/sonar-scanner"
           }
         }
+      }
+    }
+    stage('Quality gate') {
+      agent { label 'node1' }
+      steps {
+        echo 'Quality gate...'
+        waitForQualityGate abortPipeline: true
       }
     }
     stage('Build and Test') {
