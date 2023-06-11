@@ -1,0 +1,9 @@
+name: Product Information
+price: 29.99
+description:
+  - This is a high-quality product.
+  - It is available in multiple colors.
+    - Red
+    - Blue
+  - The price is subject to change.
+discount: 10%
