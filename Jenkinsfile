@@ -49,7 +49,7 @@ pipeline {
       steps {
         echo 'Deploying application...'
         sshagent(credentials: ['ubuntu-creds']) {
-          sh "ssh -o StrictHostKeyChecking=no ubuntu@18.197.105.36 'cd web_app && sudo systemctl stop web_app && sudo rm -f web_app && sudo wget -O web_app https://mbps54-bucket-artif-1.s3.eu-central-1.amazonaws.com/pipeline_lesson_10/${env.BUILD_NUMBER}/artifacts/web_app && sudo chmod +x web_app && sudo systemctl start web_app'"
+          sh "ssh -o StrictHostKeyChecking=no ubuntu@18.193.69.138 'cd web_app && sudo systemctl stop web_app && sudo rm -f web_app && sudo wget -O web_app https://mbps54-bucket-artif-1.s3.eu-central-1.amazonaws.com/pipeline_lesson_10/${env.BUILD_NUMBER}/artifacts/web_app && sudo chmod +x web_app && sudo systemctl start web_app'"
         }
       }
     }
