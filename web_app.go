@@ -9,18 +9,22 @@ func main() {
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         fmt.Fprint(w, `
             <!DOCTYPE html>
-            <html>
-                <head>
-                    <style>
-                        #hello {
-                            font-size: 60px;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div id="hello">Hello from lesson 11!</div>
-                </body>
-            </html>
+<html>
+    <head>
+        <style>
+            #hello {
+                font-size: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="hello">Hello from lesson 11!</div>
+        <script>
+            alert("This is a bug!");
+        </script>
+    </body>
+</html>
+
         `)
     })
 
