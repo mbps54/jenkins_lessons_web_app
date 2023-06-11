@@ -13,7 +13,7 @@ pipeline {
       }
     }
     stage('Quality gate') {
-      agent { label 'node1' }
+      agent any
       steps {
         echo 'Quality gate...'
         waitForQualityGate abortPipeline: true
