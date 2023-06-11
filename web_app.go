@@ -19,11 +19,13 @@ func main() {
     </head>
     <body>
         <div id="hello">Hello from lesson 11!</div>
-        <script>
-            alert("This is a bug!");
-        </script>
+        <div class="example"></div>
     </body>
+    <script>
+        document.getElementsByClassName('example')[0].innerHTML = "<script>alert('This is a bug!');</script>";
+    </script>
 </html>
+
 
         `)
     })
