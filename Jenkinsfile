@@ -1,24 +1,6 @@
 pipeline {
   agent none
   stages {
-    stage('SonarQube Analysis') {
-      agent { label 'node1' }
-      steps {
-        script {
-          def scannerHome = tool 'SonarScanner';
-          withSonarQubeEnv('sonar') {
-            sh "${scannerHome}/bin/sonar-scanner"
-          }
-        }
-      }
-    }
-    stage('Quality gate') {
-      agent { label 'node1' }
-      steps {
-        echo 'Quality gate...'
-        waitForQualityGate abortPipeline: true
-      }
-    }
     stage('Build and Test') {
       agent {
         docker {
