@@ -18,7 +18,7 @@ func main() {
                     </style>
                 </head>
                 <body>
-                    <div id="hello">Hello from lesson 11</div>
+                    <div id="hello">Hello from lesson 12!</div>
                 </body>
             </html>
         `)
