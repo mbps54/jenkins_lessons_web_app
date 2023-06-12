@@ -1,6 +1,17 @@
 pipeline {
   agent none
   stages {
+    stage('SonarQube Analysis') {
+      agent { label 'node1' }
+      steps {
+        script {
+          def scannerHome = tool 'SonarScanner';
+          withSonarQubeEnv('sonar') {
+            sh "${scannerHome}/bin/sonar-scanner"
+          }
+        }
+      }
+    }
     stage('Build and Test') {
       agent {
         docker {
