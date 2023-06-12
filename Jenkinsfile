@@ -12,6 +12,13 @@ pipeline {
         }
       }
     }
+    stage('Quality gate') {
+      agent { label 'node1' }
+      steps {
+        echo 'Quality gate...'
+        waitForQualityGate abortPipeline: true
+      }
+    }
     stage('Build and Test') {
       agent {
         docker {
